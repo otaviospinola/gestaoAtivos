@@ -1,0 +1,42 @@
+<%- include ('./partials/header.ejs') %>
+<body class="container">
+    <div class="container text-center">
+        <div class = "row">
+            <div class = "col">
+                <h1>Controle de ativos TaskIT|TWRT</h1>
+                <hr class="border border-primary border-3 opacity-75">
+            </div>
+        </div>
+        <div class="row">
+            <div class = "col">
+                <ul class="list-group list-group-flush">
+                    <% params.forEach(param => { %>
+                        <li class="list-group-item"><%= param %></li>
+                    <% }) %>
+                </ul>
+                <hr class="border border-primary border-3 opacity-75">
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col">
+                <a href="/get/<%= id %>" class="btn btn-sm btn-primary">
+                    Adquirir posse
+                </a>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col">
+                <h7>
+                    Caso tenha solicitado a posse recentemente, tente atualizar a página
+                </h7>
+                <hr>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col">
+                    <IFRAME WIDTH=1000 HEIGHT=400 FRAMEBORDER=0 SRC="https://app.smartsheet.com/b/publish?EQBCT=767be8f7c1134d0dace14d5c2fb15244"></IFRAME>            
+            </div>
+        </div>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs') %>
