@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const client = require('smartsheet')
-require('dotenv').config()
 const accessToken = process.env.TOKEN
 //View engine
 app.set('view engine', 'ejs')
