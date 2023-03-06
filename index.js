@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 //Static
 app.use(express.static('public'))
 
-const assetSheetId = "3804700140169092"
+const assetSheetId = "4683090476984196  "
 
 function columnMap(sheet){
     const columnMap = sheet.columns.reduce((tempMap, col) => { 
@@ -104,7 +104,7 @@ async function setOwner(error, token){
             body: {
                 id: row.id,
                 cells: [{
-                    columnId: columnMap(sheet)["Responsável"],
+                    columnId: columnMap(sheet)["Assignee"],
                     value: user.email
                 }]
             }
