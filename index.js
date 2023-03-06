@@ -30,13 +30,21 @@ app.get('/item/:id', async (req, res) => {
         accessToken: accessToken
     });
 
+    let showColumns = [
+        'Asset Name', 'Assignee', 'Asset Status', 'Asset Type', 'Asset Brand/Model'
+    ]
     const id = req.params.id
     const sheet = await ss.sheets.getSheet({id: assetSheetId})
     const sheetColumns = columnMap(sheet)
     const row = sheet.rows.find((row) => {return row.cells[0].value == id})
 
-    let params = row.cells.filter((cell) => {return cell.columnId != sheetColumns["QR Code"]})
-    .map((cell) => {
+    let params = row.cells.filter((cell) => {
+        for (column of showColumns){
+            if(sheetColumns[column] == cell.columnId){
+                return true
+            }
+        }
+    }).map((cell) => {
         return (
             Object.keys(sheetColumns).find((name) => sheetColumns[name] == cell.columnId) +
             ": " + cell.value   
